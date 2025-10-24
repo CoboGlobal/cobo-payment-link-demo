@@ -164,6 +164,7 @@ const initializeCheckout = async () => {
       developerName: 'xxx', // Powered by xxx, only supports letters and @, length cannot exceed 20 characters, will be hidden if not passed or invalid
       supportToken: ['USDT', 'USDC'],
       supportChain: ['ARBITRUM_ETH', 'BASE_ETH', 'BSC_BNB', 'ETH', 'MATIC', 'SOL', 'TRON'],
+      amountTolerance: '0.4', // Order amount deviation range. As long as the difference between the user's actual payment amount and the receivable amount is within this range, the payment is considered successful. (unit: USDT)
     })
     addEventLog('INFO', 'Checkout initialized')
   }

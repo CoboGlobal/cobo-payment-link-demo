@@ -44,6 +44,7 @@ export interface ICheckoutInfo {
   developerName?: string // Powered by xxx (optional)
   supportToken?: string[]; // Supported tokens (optional)
   supportChain?: string[]; // Supported chains (optional)
+  amountTolerance?: string // Amount tolerance (optional), default is 0, unit is USDT
 }
 
 export interface IAccessInfo {
