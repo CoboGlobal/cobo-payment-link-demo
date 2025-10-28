@@ -1,20 +1,166 @@
 @import './base.css';
 
-#app {
-  margin: 0 auto;
-  font-weight: normal;
+.page {
+  max-width: 1200px;
+  margin: 32px auto;
 }
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+.grid {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  gap: 24px;
 }
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  padding: 24px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.no-padding {
+  padding: 0;
+}
+.product {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.thumb {
+  width: 104px;
+  height: 104px;
+  background: #e9edf6;
+  border-radius: 8px;
+}
+.title {
+  font-weight: 600;
+  color: #1f2a44;
+}
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2a5bd7;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 16px;
+}
+.section-title::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  background: #2a5bd7;
+  border-radius: 4px;
+  display: inline-block;
+}
+.method {
+  border: 2px solid #cfe0ff;
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.method.active {
+  border-color: #2a5bd7;
+  box-shadow: 0 0 0 3px rgba(42, 91, 215, 0.12) inset;
+}
+.method input {
+  width: 16px;
+  height: 16px;
+}
+.muted {
+  color: #6b7280;
+  font-size: 14px;
+}
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  color: #1f2a44;
+}
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 16px 0;
+}
+.pay-btn {
+  width: auto;
+  padding: 8px 12px;
+  background: #3b5bfd;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pay-btn:hover {
+  background: #2f4be6;
+}
+.mode {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+.iframe-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+.actions .pay-btn {
+  width: 240px;
+  text-align: center;
+}
+.card-heading {
+  font-weight: 700;
+  color: #1f2a44;
+  margin-bottom: 8px;
+}
+.input-number {
+  width: 120px;
+  padding: 6px 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  text-align: right;
+}
+.refresh-btn {
+  margin-left: 2px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: grey;
+}
+.iframe-fit {
+  width: 100%;
+  height: calc(100vh - 64px - 48px);
+}
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .actions {
+    align-items: stretch;
+  }
+  .actions .pay-btn {
+    width: 100%;
+  }
+  #merchantOrderCode {
+    white-space: nowrap;
+    overflow-x: auto;
+    display: inline-block;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    hyphens: none;
+    word-break: normal;
+    overflow-wrap: normal;
   }
 }

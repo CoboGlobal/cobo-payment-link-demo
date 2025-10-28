@@ -1,23 +1,19 @@
-# Cobo Checkout Vue 3 Demo
-
-This is a Vue 3-based demo application that demonstrates how to integrate the Cobo Checkout SDK.
+# Cobo Checkout Demo
 
 ## Project Overview
 
-This project simulates how a customer/PSP integrates Cobo Checkout through iframe. Main features include:
+This is a pure JavaScript demo that demonstrates how to generate Payment Link and Subscription Link (coming soon)
 
-1. Direct OAuth authentication API calls from frontend
-2. Automatic token expiration and refresh logic handling
-3. Embedding locally running Checkout application through iframe
-4. Using postMessage for iframe communication
-5. Complete demonstration of order creation and status change process
+1. Frontend selects crypto payment method and requests backend to generate order
+2. Backend calls Cobo Waas API and returns the generated Link (including token) to frontend
+3. After frontend receives the Link, it supports both URL and iframe modes for opening
 
 ## Prerequisites
 
 Before running this demo, please ensure:
 
-1. Frontend has correctly configured Checkout SDK environment (please modify iframeUrl in `src/views/CheckoutDemo.vue`)
-2. Backend has implemented logic to obtain token through API Key (can temporarily mock data in `src/services/authService.ts`)
+1. Create API Key and API Secret, and activate them in Cobo Portal
+2. Fill in the API Key and API Secret in server.js
 
 ## Installation and Running
 
@@ -25,20 +21,13 @@ Before running this demo, please ensure:
 # Install dependencies
 pnpm install
 
-# Start development server
+# Start (Start browser side and server side at the same time)
+npm run start
+
+# Or
+# Start browser side only
 npm run dev
+
+# Start server side only
+npm run server
 ```
-
-## Usage Instructions
-
-1. 【demo】Enter transaction amount and order number (or use auto-generated ones)
-2. 【demo】Click "Start Checkout" button to initiate checkout process (involves iframe communication, passing order-related information to SDK)
-3. 【sdk】After iframe initialization is complete, it will request demo to get token (involves iframe communication, passing token to SDK)
-4. 【sdk】Complete payment process in iframe
-
-## Project Structure
-
-- `src/services/authService.ts` - Authentication service, handles token acquisition and refresh
-- `src/services/iframeService.ts` - iframe communication service
-- `src/types/index.ts` - Type definitions
-- `src/views/CheckoutDemo.vue` - Main demo component
