@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-This is a pure JavaScript demo that demonstrates how to generate Payment Link and Subscription Link (coming soon)
+This is a pure JavaScript demo that demonstrates how to generate Payment Link, Refund Link and Subscription Link (coming soon)
 
-1. Frontend selects crypto payment method and requests backend to generate order
+1. Frontend selects payment, refund or subscription and requests backend to generate link
 2. Backend calls Cobo Waas API and returns the generated Link (including token) to frontend
 3. After frontend receives the Link, it supports both URL and iframe modes for opening
 
