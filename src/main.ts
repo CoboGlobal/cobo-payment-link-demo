@@ -13,8 +13,8 @@ const getLink = async (queryUrl: string) => {
     const res = await axios.post(queryUrl, params)
     const { url, token } = res.data
     // locale: en / zh
-    // Payment Link: https://checkout.cobo.com/payment?token=xxx&locale=en
-    // Refund Link: https://checkout.cobo.com/refund?token=xxx&locale=en
+    // Payment Link: https://payment-link.cobo.com/payment?token=xxx&locale=en
+    // Refund Link: https://payment-link.cobo.com/refund?token=xxx&locale=en
     return `${url}?token=${token}&locale=en`
   } catch (e) {
     alert(JSON.stringify(e?.response?.data))

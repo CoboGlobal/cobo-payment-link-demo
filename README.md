@@ -1,4 +1,4 @@
-# Cobo Checkout Demo
+# Cobo Payment Link Demo
 
 ## Project Overview
 
