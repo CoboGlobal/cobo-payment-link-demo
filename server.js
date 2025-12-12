@@ -69,6 +69,8 @@ app.post('/createOrder', async (req, res) => {
       // Powered by xxx, only supports letters and @, length cannot exceed 20 characters, will be hidden if not passed or invalid
       developer_name: 'Cobo',
       logo: 'https://www.cobo.com/blue-logo.svg',
+      // Return URL, optional
+      return_url: "https://www.cobo.com",
     },
   };
 
