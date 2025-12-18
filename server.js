@@ -38,22 +38,15 @@ app.post('/createOrder', async (req, res) => {
       merchant_id: 'M1002',
       merchant_order_code: `order-${Date.now()}`,
       psp_order_code: `psp-${Date.now()}`,
-      currency: 'USD',
-      order_amount: '1',
+      pricing_currency: 'USD', // currency is deprecated, use pricing_currency instead
+      pricing_amount: '1', // order_amount is deprecated, use pricing_amount instead
       fee_amount: '0',
       // Order amount deviation range (optional, default: 0)
       // As long as the difference between the user's actual payment amount and the receivable amount is within this range, the payment is considered successful (unit: USDT)
       amount_tolerance: '0',
-      // Custom exchange rates (optional)
-      custom_exchange_rates: [
-        {
-          token_id: 'ETH_USDT',
-          exchange_rate: '0.99',
-        },
-      ],
       // Supported payment tokens and chains, only partial list shown, more are actually supported
       // TTRON_USDT and SOLDEV_SOL_USDC are test environment specific and are not supported in production environment
-      token_ids: [
+      payable_currencies: [ // token_ids is deprecated, use payable_currencies instead
         'ETH_USDT',
         'BSC_USDT',
         'TRON_USDT',
@@ -62,8 +55,15 @@ app.post('/createOrder', async (req, res) => {
         'SOL_USDC',
         'SOLDEV_SOL_USDC',
       ],
-      // maximum 3 hours (unit: seconds)
+      // Maximum 3 hours (unit: seconds)
       expired_in: 180 * 60,
+      // Order payable amount, optional. If not configured, the system will use the Cobo exchange rate to calculate it
+      payable_amounts:[
+        {
+          token_id: 'ETH_USDT',
+          amount: '1.1',
+        },
+      ]
     },
     display_info: {
       // Powered by xxx, only supports letters and @, length cannot exceed 20 characters, will be hidden if not passed or invalid
